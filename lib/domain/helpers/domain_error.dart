@@ -1,1 +1,4 @@
-enum DomainError { unexcepted }
+enum DomainError {
+  unexcepted,
+  invalidCredentials,
+}

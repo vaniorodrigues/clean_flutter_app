@@ -19,8 +19,8 @@ class RemoteAuthentication {
         method: 'post',
         body: body,
       );
-    } on HttpError {
-      throw DomainError.unexcepted;
+    } on HttpError catch (error) {
+      throw error == HttpError.unauthorized ? DomainError.invalidCredentials : DomainError.unexcepted;
     }
   }
 }
